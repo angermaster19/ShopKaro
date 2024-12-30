@@ -1,5 +1,5 @@
 import React from "react";
-import "./card2.css"; // Import the CSS file
+import "./Card2.css"; // Import the CSS file
 
 export function Card2({id,title,description}) {
     const deleteItem = ()=>{
