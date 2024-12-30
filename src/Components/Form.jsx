@@ -91,15 +91,16 @@ export function Form() {
   }, []);
 
   return (
-    <div className="flex justify-center gap-5">
-      <div>
-        <form className="form mx-auto" onSubmit={handleSubmit}>
-          <p className="title">Add an Item</p>
-          <p className="message text-black">Add an item to the shop.</p>
-          <div className="flex">
-            <label>
+    <div className="flex flex-col md:flex-row justify-center gap-5 p-5">
+      {/* Form Section */}
+      <div className="w-full md:w-1/2 bg-white p-5 rounded-lg shadow-md">
+        <form className="form mx-auto min-w-20" onSubmit={handleSubmit}>
+          <p className="title text-xl md:text-2xl font-semibold mb-4">Add an Item</p>
+          <p className="message text-black mb-5">Add an item to the shop.</p>
+          <div className="flex flex-col md:flex-row gap-4 mb-4">
+            <label className="flex-1">
               <input
-                className="input"
+                className="input w-full"
                 type="number"
                 placeholder="Product ID"
                 required
@@ -107,12 +108,12 @@ export function Form() {
                 value={formData.id}
                 onChange={handleChange}
               />
-              <span>Product ID</span>
+              <span className="block text-sm text-gray-500 mt-1">Product ID</span>
             </label>
 
-            <label>
+            <label className="flex-1">
               <input
-                className="input"
+                className="input w-full"
                 type="text"
                 placeholder="Category"
                 required
@@ -120,13 +121,13 @@ export function Form() {
                 value={formData.category}
                 onChange={handleChange}
               />
-              <span>Category</span>
+              <span className="block text-sm text-gray-500 mt-1">Category</span>
             </label>
           </div>
 
-          <label>
+          <label className="w-full mb-4">
             <input
-              className="input"
+              className="input w-full"
               type="text"
               placeholder="Title"
               required
@@ -134,12 +135,12 @@ export function Form() {
               value={formData.title}
               onChange={handleChange}
             />
-            <span>Title</span>
+            <span className="block text-sm text-gray-500 mt-1">Title</span>
           </label>
 
-          <label>
+          <label className="w-full mb-4">
             <input
-              className="input"
+              className="input w-full"
               type="number"
               placeholder="Amount"
               required
@@ -147,39 +148,41 @@ export function Form() {
               value={formData.amount}
               onChange={handleChange}
             />
-            <span>Amount</span>
+            <span className="block text-sm text-gray-500 mt-1">Amount</span>
           </label>
 
-          <label>
+          <label className="w-full mb-4">
             <input
-              className="input"
+              className="input w-full"
               type="file"
               accept="image/*"
               onChange={handleImageChange}
               required
             />
-            <span>Upload Image</span>
+            <span className="block text-sm text-gray-500 mt-1">Upload Image</span>
           </label>
 
-          <label>
+          <label className="w-full mb-4">
             <textarea
-              className="input input2"
+              className="input w-full"
               placeholder="Description"
               required
               name="description"
               value={formData.description}
               onChange={handleChange}
             />
-            <span>Description</span>
+            <span className="block text-sm text-gray-500 mt-1">Description</span>
           </label>
 
-          <button type="submit" className="submit mt-10">
+          <button type="submit" className="submit mt-6 w-full bg-blue-500 text-white py-2 rounded">
             Add to Shop
           </button>
         </form>
       </div>
-      <div className="form container">
-        <p className="title mx-auto">Inventory</p>
+
+      {/* Inventory Section */}
+      <div className="w-full md:w-1/2 mt-6 md:mt-0">
+        <p className="title text-xl md:text-2xl font-semibold mb-4">Inventory</p>
         <div className="flex flex-wrap justify-start gap-3">
           {inventory.map((item) => (
             <Card2
