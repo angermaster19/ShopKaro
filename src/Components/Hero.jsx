@@ -1,6 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export function Hero(){
+  const navigate = useNavigate()
+  const shop = ()=>{
+    navigate("/shop")
+  }
+
+  const dashboard = ()=>{
+    navigate("/dashboard")
+  }
     return(
         <>
          <div className="container mx-auto flex flex-col items-center justify-center rounded-md bg-white">
@@ -15,11 +24,11 @@ export function Hero(){
   
         {/* button section  */}
         <section className=" flex justify-around mt-3">
-          <button className="mx-1 flex items-center justify-center rounded-lg bg-indigo-600   px-8 py-3 text-lg ">
-            Download
+          <button className="mx-1 flex items-center justify-center rounded-lg bg-indigo-600 text-white  px-8 py-3 text-lg " onClick={shop}>
+            Shop
           </button>
-          <button className="mx-1 flex items-center justify-center rounded-lg border border-black px-8 py-3 text-lg  text-black ">
-            Download
+          <button className="mx-1 flex items-center justify-center rounded-lg border border-black px-8 py-3 text-lg  text-black " onClick={dashboard}>
+            Dashboard
           </button>
         </section>
   
